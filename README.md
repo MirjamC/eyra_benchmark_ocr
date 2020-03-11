@@ -26,11 +26,11 @@ pillow (pip install pillow)
 pytessearch (pip install pytesseract)  
   
 _Code_  
-`from PIL import Image  
+```from PIL import Image  
 import pytesseract  
 
 column = Image.open('Boeken/tif/impact_boeken.tif/boeken/00529526.tif')
 gray = column.convert('L')
 blackwhite = gray.point(lambda x: 0 if x < 100 else 255, '1')
-blackwhite.save("00529526_ocr2.tiff")`
+blackwhite.save("00529526_ocr2.tiff")```
     
