@@ -5,7 +5,7 @@ __Goal:__
 * search for a state-of-the art similarity measure. 
 
 __Outcomes:__
-* Two pre-processing algorithms which pre-process the images and save the new images
+* Two algorithms that pre-process the images and save the new images
 * A tool which can be used to run Tesseract (an OCR engine) on these images, with as output a page.xml
 * A jacqueard similarity measure 
 
