@@ -33,7 +33,7 @@ blackwhite = gray.point(lambda x: 0 if x < 100 else 255, '1')
 blackwhite.save("00529526_ocr_version1.tiff")
 ```
 
-__Algorithm 2: pre-processing the images__ 
+__Algorithm 2: pre-processing the images__   
 _Dependencies:_
 pillow (pip install pillow)  
 pytessearch (pip install pytesseract)  
@@ -77,8 +77,8 @@ FOR %%c in ("input\*.tif") DO (
 )
 ```
 
+Adjusted version is available as a zip file. 
 
-#To do:  aanvullen
 
 __Calculating document similarity__
 
