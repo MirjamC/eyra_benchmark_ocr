@@ -1,7 +1,7 @@
 # Eyra benchmark for ocr
 
 __Goal:__
-* preparing algorithms that can be used to be submitted to the EYRA benchmark platform, with a page.xml as output
+* preparing algorithms to be submitted to the EYRA benchmark platform, with a page.xml as output
 * search for a state-of-the art similarity measure. 
 
 __Outcomes:__
@@ -90,7 +90,7 @@ __Calculating document similarity__
 
 The intersection() method returns a set that contains the similarity between two or more sets. Meaning: The returned set contains only items that exist in both sets, or in all sets if the comparison is done with more than two sets.  
   
-Output: a number between zero (no similarity) and hundred (completly similar)
+Output: a number between zero (no similarity) and hundred (completely similar)
 
 ```
 def get_jaccard_sim(str1, str2): 
@@ -105,7 +105,7 @@ ocr_text = 'Plain ocred text'
 get_jaccard_sim(gt_text,ocr_test)    
 ```
 
-|               | algoritme 1   | algrotime 2   |
+|               | algorithm 1   | algorithm 2   |
 | ------------- |:-------------:| -----:        |
 | 529526     	| 0,44		| 0,55		|
 | 529527     	| 0,52     	| 0,59 		|
