@@ -9,9 +9,6 @@ __Outcomes:__
 * A tool which can be used to run Tesseract (an OCR engine) on these images, with as output a page.xml
 * A jacqueard similarity measure 
 
-__Next steps:__
-* Add the algorithms and tool to different Docker containers which can then be used to implement or submit on the Eyra platform. 
-
 __Notes:__
 * The page.xml output has changed: The format of polygons stored in <Coords> has been changed from 
 	<Point> elements to a 'points' attribute. A polygon is now represented by a
@@ -19,7 +16,7 @@ __Notes:__
 	requires at least two points (enforced by a regular expression constraint).
 	Example: <Coords points="5,3 8,10 4,5"/>
 		
-		
+# Outcomes		
 __Algorithm 1: pre-processing the images__   
 _Dependencies:_  
 pillow (pip install pillow)  
@@ -33,7 +30,7 @@ import pytesseract
 column = Image.open('Path to image')
 gray = column.convert('L')
 blackwhite = gray.point(lambda x: 0 if x < 100 else 255, '1')
-blackwhite.save("00529526_ocr2.tiff")
+blackwhite.save("00529526_ocr_version1.tiff")
 ```
 
 __Algorithm 2: pre-processing the images__ 
@@ -48,15 +45,46 @@ from PIL import Image, ImageFilter
 im = Image.open('Boeken/tif/impact_boeken.tif/boeken/00529526.tif')
 im = im.convert('L').resize([3 * _ for _ in im.size], Image.BICUBIC)
 im = im.point(lambda p: p > 150 and p + 100)
-im.save("00529526_ocr3.tiff")
+im.save("00529526_ocr_version2.tiff")
 ```
 #To do:  bovenstaande code voor meerdere images maken
 
 __From images to page.xml__
 
+* Downloaded Tesseract to Page from Prima ( http://www.primaresearch.org/tools/TesseractOCRToPAGE )
+* Added a new map 'output' en renamed 'input_output' to only 'input'
+* Put testdata (pre-proccesed images) in the input folder
+* Created batchfile with following code:
+
+```
+::
+:: Autodetect Executable
+::
+
+FOR %%c in ("bin\Tesseract*.exe") DO (
+ SET EXE=%%c
+)
+
+
+echo.>log.txt
+
+::
+:: Loop through all files within the specified folder
+::
+
+FOR %%c in ("input\*.tif") DO (
+  %EXE% -inp-img "%%c" -out-xml "output\%%~nc.xml" -rec-mode ocr-regions -lang nld -orig-outlines>>log.txt
+)
+```
+
+
 #To do:  aanvullen
 
 __Calculating document similarity__
+
+The intersection() method returns a set that contains the similarity between two or more sets. Meaning: The returned set contains only items that exist in both sets, or in all sets if the comparison is done with more than two sets.  
+  
+Output: a number between zero (no similarity) and hundred (completly similar)
 
 ```
 def get_jaccard_sim(str1, str2): 
@@ -65,8 +93,8 @@ def get_jaccard_sim(str1, str2):
     c = a.intersection(b)
     return float(len(c)) / (len(a) + len(b) - len(c))
    
-gt_text = 
-ocr_text = 
+gt_text = 'Plain ground truth text'
+ocr_text = 'Plain ocred text'
     
 get_jaccard_sim(gt_text,ocr_test)    
 ```
