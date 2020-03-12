@@ -10,8 +10,8 @@ __Outcomes:__
 * A jacqueard similarity measure 
 
 __Notes:__
-* The page.xml output has changed: The format of polygons stored in <Coords> has been changed from 
-	<Point> elements to a 'points' attribute. A polygon is now represented by a
+* The page.xml output has changed: The format of polygons stored in ```<Coords>```` has been changed from 
+	````<Point>``` elements to a 'points' attribute. A polygon is now represented by a
 	space separated list of points (x and y are comma separated). A list 
 	requires at least two points (enforced by a regular expression constraint).
 	Example: <Coords points="5,3 8,10 4,5"/>
