@@ -27,10 +27,14 @@ _Code_
 from PIL import Image
 import pytesseract
 
-column = Image.open('Path to image')
-gray = column.convert('L')
-blackwhite = gray.point(lambda x: 0 if x < 100 else 255, '1')
-blackwhite.save("00529526_ocr_version1.tiff")
+images = [list of the images]
+
+for i in images:
+    filename = i.split('/')[-1] + "_version1.tif"
+    column = Image.open(i)
+    gray = column.convert('L')
+    blackwhite = gray.point(lambda x: 0 if x < 100 else 255, '1')
+    blackwhite.save(filename)
 ```
 
 __Algorithm 2: pre-processing the images__   
@@ -42,10 +46,14 @@ pytessearch (pip install pytesseract)
 import pytesseract
 from PIL import Image, ImageFilter
 
-im = Image.open('Boeken/tif/impact_boeken.tif/boeken/00529526.tif')
-im = im.convert('L').resize([3 * _ for _ in im.size], Image.BICUBIC)
-im = im.point(lambda p: p > 150 and p + 100)
-im.save("00529526_ocr_version2.tiff")
+images = [list of the images]
+
+for i in images:
+    filename = i.split('/')[-1] + "_version2.tif"
+    im = Image.open(i)
+    im = im.convert('L').resize([3 * _ for _ in im.size], Image.BICUBIC)
+    im = im.point(lambda p: p > 150 and p + 100)
+    im.save(filename)
 ```
 #To do:  bovenstaande code voor meerdere images maken
 
