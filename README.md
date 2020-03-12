@@ -55,8 +55,6 @@ for i in images:
     im = im.point(lambda p: p > 150 and p + 100)
     im.save(filename)
 ```
-#To do:  bovenstaande code voor meerdere images maken
-
 __From images to page.xml__
 
 * Downloaded Tesseract to Page from Prima ( http://www.primaresearch.org/tools/TesseractOCRToPAGE )
