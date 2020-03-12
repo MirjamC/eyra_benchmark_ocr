@@ -112,4 +112,10 @@ get_jaccard_sim(gt_text,ocr_test)
 529529---	0,4---	0,59
 529530---	0,09---	0,5
 
+|               | algoritme 1   | algrotime 2   |
+| ------------- |:-------------:| -----:        |
+| col 3 is      | right-aligned | $1600 	|
+| col 2 is      | centered      |   $12 	|
+| zebra stripes | are neat      |    $1		|
+
 
