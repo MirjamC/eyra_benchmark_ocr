@@ -1,4 +1,4 @@
-# eyra_benchmark_ocr
+# Eyra benchmark for ocr
 
 __Goal:__
 * preparing algorithms that can be used to be submitted to the EYRA benchmark platform, with a page.xml as output
