@@ -34,7 +34,7 @@ blackwhite.save("00529526_ocr_version1.tiff")
 ```
 
 __Algorithm 2: pre-processing the images__   
-_Dependencies:_
+_Dependencies:_  
 pillow (pip install pillow)  
 pytessearch (pip install pytesseract)  
 
