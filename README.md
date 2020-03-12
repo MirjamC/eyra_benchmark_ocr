@@ -60,7 +60,7 @@ __From images to page.xml__
 * Downloaded Tesseract to Page from Prima ( http://www.primaresearch.org/tools/TesseractOCRToPAGE )
 * Added a new map 'output' en renamed 'input_output' to only 'input'
 * Put testdata (pre-proccesed images) in the input folder
-* Created batchfile with following code:
+* Created batchfile with following code, stored in 'OCR Regions_NL.bat':
 
 ```
 ::
